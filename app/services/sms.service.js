@@ -1,9 +1,14 @@
 (function () {
   'use strict';
   angular
-    .module('app')
-    .service('sms', sms);
-  function sms() {
+    .module('urban')
+    .service('smsService', smsService);
+  smsService.$inject = ['redditService'];
+  function smsService(redditService) {
     // Dispatch SMS messages.
+    this.dispatch = function(phoneNumber, maxChild) {
+      // Dispatch a text message containing the Reddit post with the highest
+      // votes.
+    };
   }
 }());

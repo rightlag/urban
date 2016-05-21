@@ -9,9 +9,17 @@
   </head>
   <body>
     <h1>URBN challenge</h1>
+    <div ng-view></div>
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="app.module.js"></script>
+    <script type="text/javascript" src="constants.js"></script>
+    <script type="text/javascript" src="services/reddit.service.js"></script>
+    <script type="text/javascript" src="services/sms.service.js"></script>
+    <script type="text/javascript" src="reddit-sms/reddit-sms.route.js"></script>
+    <script type="text/javascript" src="reddit-sms/reddit-sms.controller.js"></script>
   </body>
 </html>

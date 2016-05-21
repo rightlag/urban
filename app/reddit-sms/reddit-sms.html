@@ -1,0 +1,19 @@
+<form class="form-inline" ng-submit=vm.dispatch()>
+  <div class="form-group">
+    <label class="sr-only" for="subreddit">Subreddit</label>
+    <div class="input-group">
+      <div class="input-group-addon"><code>r/</code></div>
+      <input type="text" class="form-control" id="subreddit" placeholder="Subreddit" ng-model="vm.subreddit">
+    </div>
+  </div>
+  <div class="form-group">
+    <select class="form-control" ng-model="vm.time">
+      <option ng-repeat="time in vm.times">{{ time }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="phoneNumber">Phone Number</label>
+    <input type="phone" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="vm.phoneNumber">
+  </div>
+  <button type="submit" class="btn btn-default">Send Text</button>
+</form>
