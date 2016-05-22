@@ -28,6 +28,8 @@
         From: twilio.FROM,
         Body: body
       };
+      if (article.thumbnail !== '')
+        data.MediaUrl = article.thumbnail;
       data = $httpParamSerializer(data);
       // This is for HTTP basic authentication.
       var authorization = twilio.ACCOUNT_SID + ':' + twilio.AUTH_TOKEN;

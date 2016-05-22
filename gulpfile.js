@@ -11,6 +11,6 @@
         }
       }
     });
-    gulp.watch(['*.html'], { cwd: './app' }, browserSync.reload);
+    gulp.watch(['*.html', '**/*.js'], { cwd: './app' }, browserSync.reload);
   });
 }());
