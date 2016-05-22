@@ -4,6 +4,7 @@
     beforeEach(module('urban'));
     var RedditService;
     var $httpBackend;
+    // A mock response from the Reddit API.
     var mock = {
       data: {
         data: {
@@ -40,7 +41,7 @@
       RedditService = _redditService_;
       $httpBackend = _$httpBackend_;
     }));
-    describe('children articles', function() {
+    describe('get children', function() {
       beforeEach(function() {
         $httpBackend.whenGET('https://www.reddit.com/r/python/top.json?t=all')
           .respond(200, mock);

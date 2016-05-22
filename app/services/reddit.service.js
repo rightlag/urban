@@ -27,14 +27,13 @@
         return response.data.data.children;
       }
       function errorCallback(response) {
+        // Return a rejected promise if the HTTP request is unsuccessful.
         return $q.reject(response);
       }
     }
     function getArticleByMaxScore(children) {
-      /**
-       * Given an array of postings, return the posting containing the highest
-       * vote count.
-       */
+      // Given an array of postings, return the posting containing the highest
+      // vote count.
       var hasChildren = children.length > 0;
       if (!hasChildren)
         return {};
