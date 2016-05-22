@@ -19,14 +19,12 @@
       function successCallback(children) {
         var article = redditService.getArticleByMaxScore(children);
         vm.article = article;
-        smsService.dispatch(vm.phoneNumber, article, vm.time)
-          .then(function successCallback() { vm.success = true; })
-          .catch(function errorCallback(response) {
-            vm.errors.push(response.data.message);
-          });
+        smsService.dispatch(vm.phoneNumber, article)
+          .then(function() { vm.success = true; })
+          .catch(function(response) { vm.errors.push(response.data.message); });
       }
       function errorCallback(response) {
-        vm.errors.push('Invalid subreddit ' + vm.subreddit);
+        vm.errors.push(vm.subreddit + ' not found');
       }
     }
   }

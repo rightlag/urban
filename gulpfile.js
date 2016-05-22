@@ -11,5 +11,6 @@
         }
       }
     });
+    gulp.watch(['*.html'], { cwd: './app' }, browserSync.reload);
   });
 }());
