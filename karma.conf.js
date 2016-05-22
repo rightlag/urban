@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun May 22 2016 15:04:23 GMT+0000 (UTC)
+// Generated on Sun May 22 2016 20:30:48 GMT+0000 (UTC)
 
 module.exports = function(config) {
   config.set({
@@ -15,9 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'node_modules/angular/angular.js',
-        'node_modules/angular-mocks/angular-mocks.js',
-        'app/**/*.spec.js'
+      'node_modules/angular/angular.js',
+      'node_modules/angular-route/angular-route.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'app/app.module.js',
+      'app/*.js',
+      'app/**/*.js'
     ],
 
 
@@ -48,7 +51,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
