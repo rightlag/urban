@@ -1,0 +1,26 @@
+{
+  "name": "urban",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.12.8",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rightlag/urban.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rightlag/urban/issues"
+  },
+  "homepage": "https://github.com/rightlag/urban#readme"
+}

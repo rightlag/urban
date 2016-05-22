@@ -8,7 +8,7 @@
     // Functions to retrieve postings from Reddit.
     return {
       getChildren: getChildren,
-      getMaxChild: getMaxChild
+      getArticleByMaxScore: getArticleByMaxScore
     };
     function getChildren(subreddit, time) {
       // Get Reddit postings via time.
@@ -30,9 +30,11 @@
         return $q.reject(response);
       }
     }
-    function getMaxChild(children) {
-      // Given an array of postings, return the posting containing the highest
-      // amount of votes.
+    function getArticleByMaxScore(children) {
+      /**
+       * Given an array of postings, return the posting containing the highest
+       * vote count.
+       */
       var hasChildren = children.length > 0;
       if (!hasChildren)
         return {};

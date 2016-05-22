@@ -1,19 +1,34 @@
-<form class="form-inline" ng-submit=vm.dispatch()>
+<form name="rsms" class="form-inline" ng-submit=vm.dispatch() novalidate>
   <div class="form-group">
     <label class="sr-only" for="subreddit">Subreddit</label>
     <div class="input-group">
-      <div class="input-group-addon"><code>r/</code></div>
-      <input type="text" class="form-control" id="subreddit" placeholder="Subreddit" ng-model="vm.subreddit">
+      <div class="input-group-addon">r/</div>
+      <input type="text" class="form-control" id="subreddit" placeholder="Subreddit" ng-model="vm.subreddit" required>
     </div>
   </div>
   <div class="form-group">
-    <select class="form-control" ng-model="vm.time">
+    <select class="form-control" ng-model="vm.time" required>
       <option ng-repeat="time in vm.times">{{ time }}</option>
     </select>
   </div>
   <div class="form-group">
     <label class="sr-only" for="phoneNumber">Phone Number</label>
-    <input type="phone" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="vm.phoneNumber">
+    <div class="input-group">
+      <span class="input-group-addon">+1</span>
+      <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="vm.phoneNumber" required>
+    </div>
   </div>
-  <button type="submit" class="btn btn-default">Send Text</button>
+  <button type="submit" class="btn btn-default" ng-disabled="rsms.$invalid">Send Text</button>
 </form>
+<div class="alert alert-danger" role="alert" ng-if="vm.errors.length > 0">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  <span ng-repeat="error in vm.errors">{{ error }}</span>
+</div>
+<div class="panel panel-default" ng-show="rsms.$valid && vm.success">
+  <div class="panel-body">
+    <p>Sending a text to: {{ vm.phoneNumber }}</p>
+    <p>{{ vm.article.title }}</p>
+    <p><a href="{{ vm.article.url }}" target="_blank">[read more]</a></p>
+  </div>
+</div>
