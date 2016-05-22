@@ -16,29 +16,17 @@
       redditService.getChildren(vm.subreddit, vm.time)
         .then(successCallback)
         .catch(errorCallback);
-      function successCallback(response) {
-        // The response object is an array of children (articles).
-        var article = redditService.getArticleByMaxScore(response);
-        vm.article = article.data;
-        smsService.dispatch(vm.phoneNumber, vm.article, vm.time)
-          .then(function successCallback() {
-            vm.success = true;
-          })
+      function successCallback(children) {
+        var article = redditService.getArticleByMaxScore(children);
+        vm.article = article;
+        smsService.dispatch(vm.phoneNumber, article, vm.time)
+          .then(function successCallback() { vm.success = true; })
           .catch(function errorCallback(response) {
             vm.errors.push(response.data.message);
-            return vm.errors;
           });
       }
       function errorCallback(response) {
-        /**
-         * Reddit automatically redirects the user if the subreddit is not
-         * found. The purpose of this error callback is to handle the redirect
-         * and inform the user that an incorrect subreddit was entered.
-         */
-        if (response.status === -1) {
-          vm.errors.push('Invalid subreddit ' + vm.subreddit);
-          return vm.errors;
-        }
+        vm.errors.push('Invalid subreddit ' + vm.subreddit);
       }
     }
   }

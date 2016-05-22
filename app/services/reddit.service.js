@@ -49,7 +49,7 @@
           child.index = index;
         }
       });
-      return children[child.index];
+      return children[child.index].data;
     }
   }
 }());

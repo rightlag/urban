@@ -15,7 +15,7 @@
     return {
       dispatch: dispatch
     };
-    function dispatch(phoneNumber, article, time) {
+    function dispatch(phoneNumber, article) {
       /**
        * Dispatch a text message of the posting containing the highest vote
        * count.
