@@ -15,6 +15,7 @@
       ShortMessageService = _ShortMessageService_;
       RedditService = _RedditService_;
       reddit = _reddit_;
+      // Initialize the `AppController` class with its required dependencies.
       AppController = $controller('AppController', {
         $scope: $scope,
         ShortMessageService: ShortMessageService,
@@ -27,6 +28,8 @@
         AppController.subreddit = 'python';
         AppController.time = 'all';
         AppController.phoneNumber = '16518675309';
+        // `whenGET` is required here since the `dispatch` method invokes a
+        // HTTP request.
         $httpBackend.whenGET('https://www.reddit.com/r/python/top.json?t=all')
           .respond(200);
       });

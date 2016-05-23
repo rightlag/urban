@@ -23,7 +23,7 @@
         .then(successCallback)
         .catch(errorCallback);
       function successCallback(response) {
-        // Return the children of the response.
+        // Return the children of the response (array of articles).
         return response.data.data.children;
       }
       function errorCallback(response) {

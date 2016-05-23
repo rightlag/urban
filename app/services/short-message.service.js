@@ -45,6 +45,7 @@
         .catch(errorCallback);
       function successCallback(response) { return response; }
       function errorCallback(response) {
+        // If an error occurs, reject the response object.
         return $q.reject(response);
       }
     }
