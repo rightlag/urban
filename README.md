@@ -4,6 +4,8 @@ This repository contains the Urban Outfitters Coding Challenge.
 
 The application prompts the user to enter a [subreddit](https://www.reddit.com/reddits/), a posting time, and a phone number. Once the information has been received, the application sends a SMS text message to the phone number entered containing a link to the top rated posting based on the time that was chosen. For instance, if the user were to choose the subreddit `gifs` and select `all` from the dropdown menu, a text messaging containing the highest rated `gifs` posting of all time would be sent to the phone number that the user entered.
 
+**Note** both my Twilio client ID and client secret are stored in this application. Normally, I would *not* hard code sensitive information like this, but due to the fact that I am submitting the application via email and it should be easily deployable, I hard coded the values.
+
 # Objective
 
 Create a simple app that interfaces with a public open API ([http://www.programmableweb.com/apis/directory](http://www.programmableweb.com/apis/directory)). The app should utilize an interaction pattern, such as user input/button, geolocation, etc., to pass information to the API, and with returned data, create content on the page.

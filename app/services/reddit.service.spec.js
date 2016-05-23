@@ -55,7 +55,8 @@
           });
       });
       it('should return article with the highest score', function() {
-        var article = RedditService.getArticleByMaxScore(mock.data.data.children);
+        var article = RedditService
+          .getArticleByMaxScore(mock.data.data.children);
         // This is the article with the title `filter`.
         expect(article).toBe(mock.data.data.children[1].data);
       });

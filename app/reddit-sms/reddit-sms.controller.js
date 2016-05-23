@@ -16,6 +16,7 @@
     // HTTP/2 API to send the article with the highest score based on the time
     // that is entered via the user.
     function dispatch() {
+      vm.errors = [];
       redditService.getChildren(vm.subreddit, vm.time)
         .then(successCallback)
         .catch(errorCallback);

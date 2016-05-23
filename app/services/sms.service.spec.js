@@ -10,7 +10,8 @@
       to: '+16518675309',
       from: '+19402027859'
     };
-    beforeEach(inject(function(_smsService_, _$httpBackend_, _$httpParamSerializer_, _twilio_) {
+    beforeEach(inject(function(_smsService_, _$httpBackend_,
+        _$httpParamSerializer_, _twilio_) {
       ShortMessageService = _smsService_;
       $httpBackend = _$httpBackend_;
       $httpParamSerializer = _$httpParamSerializer_;
@@ -33,7 +34,8 @@
         $httpBackend.whenPOST(url, data, headers)
           .respond(201, mock);
       });
-      it('should send a text with an article containing the highest score', function() {
+      it('should send a text with an article containing the highest score',
+          function() {
         var article = {
           title: 'MERRY CHRISTMAS from Charlie the venus flytrap!!!',
           score: 2247

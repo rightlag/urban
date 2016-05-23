@@ -1,35 +1,53 @@
+<div class="jumbotron">
+  <h1>URBN Coding Challenge</h1>
+  <p>This application sends a text message containing the top posting in a particular subreddit based on the time that was selected. Simply use the form below to start sending texts!</p>
+</div>
 <form name="rsms" class="form-inline" ng-submit="vm.dispatch()" novalidate>
-  <div class="form-group">
-    <label class="sr-only" for="subreddit">Subreddit</label>
-    <div class="input-group">
-      <div class="input-group-addon">r/</div>
-      <input type="text" class="form-control" id="subreddit" placeholder="Subreddit" ng-model="vm.subreddit" required>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label class="sr-only" for="subreddit">Subreddit</label>
+        <div class="input-group">
+          <div class="input-group-addon">r/</div>
+          <input type="text" class="form-control input-lg" id="subreddit" placeholder="Subreddit" ng-model="vm.subreddit" required>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <select class="form-control input-lg time-dropdown" ng-model="vm.time" required>
+          <option value="">--select time--</option>
+          <option ng-repeat="time in vm.times">{{ time }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label class="sr-only" for="phoneNumber">Phone Number</label>
+        <div class="input-group">
+          <span class="input-group-addon">+1</span>
+          <input type="tel" class="form-control input-lg" id="phoneNumber" placeholder="Phone Number" ng-model="vm.phoneNumber" required>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <button type="submit" class="btn btn-default btn-lg btn-block" ng-disabled="rsms.$invalid">Send Text</button>
     </div>
   </div>
-  <div class="form-group">
-    <select class="form-control" ng-model="vm.time" required>
-      <option value="">--select time--</option>
-      <option ng-repeat="time in vm.times">{{ time }}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="phoneNumber">Phone Number</label>
-    <div class="input-group">
-      <span class="input-group-addon">+1</span>
-      <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="vm.phoneNumber" required>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-default" ng-disabled="rsms.$invalid">Send Text</button>
 </form>
-<div class="alert alert-danger" role="alert" ng-if="vm.errors.length > 0">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Error:</span>
-  <span ng-repeat="error in vm.errors">{{ error }}</span>
-</div>
-<div class="panel panel-default" ng-show="vm.success">
-  <div class="panel-body">
-    <p>Sending a text to: {{ vm.phoneNumber }}</p>
-    <p>{{ vm.article.title }}</p>
-    <p><a href="{{ vm.article.url }}" target="_blank">[view content]</a></p>
+<section id="main-content">
+  <div class="alert alert-danger" role="alert" ng-if="vm.errors.length > 0">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    <span ng-repeat="error in vm.errors">{{ error }}</span>
   </div>
-</div>
+  <div class="panel panel-default" ng-show="vm.success">
+    <div class="panel-body">
+      <h2>Sending a text to: <strong>{{ vm.phoneNumber }}</strong></h2>
+      <blockquote>
+        <p>{{ vm.article.title }}</p>
+      </blockquote>
+      <p><a href="{{ vm.article.url }}" class="btn btn-primary" target="_blank">view content</a></p>
+    </div>
+  </div>
+</section>
