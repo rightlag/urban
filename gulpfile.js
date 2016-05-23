@@ -9,11 +9,15 @@
         baseDir: './app',
         routes: {
           '/node_modules': './node_modules',
-          '/content': './content'
+          '/assets': './assets'
         }
       }
     });
-    gulp.watch(['*.html', '**/*.js', '../content/**/*.css'], { cwd: './app' }, browserSync.reload);
+    gulp.watch([
+      '*.html',
+      '**/*.js',
+      '../assets/**/*.css'
+    ], { cwd: './app' }, browserSync.reload);
   });
   gulp.task('test', function(done) {
     new Server({
@@ -21,4 +25,5 @@
       singleRun: true,
     }, done).start();
   });
+  gulp.task('default', ['serve']);
 }());
