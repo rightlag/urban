@@ -2,15 +2,14 @@
   'use strict';
   angular
     .module('urban')
-    .factory('smsService', smsService);
-  smsService.$inject = [
+    .factory('ShortMessageService', ShortMessageService);
+  ShortMessageService.$inject = [
     '$http',
     '$q',
     '$httpParamSerializer',
-    'redditService',
     'twilio'
   ];
-  function smsService($http, $q, $httpParamSerializer, redditService, twilio) {
+  function ShortMessageService($http, $q, $httpParamSerializer, twilio) {
     // A service for dispatching text messages via Twilio.
     return {
       dispatch: dispatch

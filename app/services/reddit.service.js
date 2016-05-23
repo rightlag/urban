@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('urban')
-    .factory('redditService', redditService);
-  redditService.$inject = ['$http', '$q', 'reddit'];
-  function redditService($http, $q, reddit) {
+    .factory('RedditService', RedditService);
+  RedditService.$inject = ['$http', '$q', 'reddit'];
+  function RedditService($http, $q, reddit) {
     // Functions to retrieve postings from Reddit.
     return {
       getChildren: getChildren,

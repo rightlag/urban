@@ -10,9 +10,9 @@
       to: '+16518675309',
       from: '+19402027859'
     };
-    beforeEach(inject(function(_smsService_, _$httpBackend_,
+    beforeEach(inject(function(_ShortMessageService_, _$httpBackend_,
         _$httpParamSerializer_, _twilio_) {
-      ShortMessageService = _smsService_;
+      ShortMessageService = _ShortMessageService_;
       $httpBackend = _$httpBackend_;
       $httpParamSerializer = _$httpParamSerializer_;
       twilio = _twilio_;

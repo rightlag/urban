@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  describe('redditService', function() {
+  describe('RedditService', function() {
     beforeEach(module('urban'));
     var RedditService;
     var $httpBackend;
@@ -37,8 +37,8 @@
         }
       }
     };
-    beforeEach(inject(function(_redditService_, _$httpBackend_) {
-      RedditService = _redditService_;
+    beforeEach(inject(function(_RedditService_, _$httpBackend_) {
+      RedditService = _RedditService_;
       $httpBackend = _$httpBackend_;
     }));
     describe('get children', function() {

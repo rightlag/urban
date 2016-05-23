@@ -3,8 +3,8 @@
   angular
     .module('urban')
     .controller('AppController', AppController);
-  AppController.$inject = ['smsService', 'redditService', 'reddit'];
-  function AppController(smsService, redditService, reddit) {
+  AppController.$inject = ['ShortMessageService', 'RedditService', 'reddit'];
+  function AppController(ShortMessageService, RedditService, reddit) {
     // This is the main controller for the application.
     var vm = this;
     vm.times = reddit.TIMES;
@@ -16,13 +16,13 @@
     function dispatch() {
       vm.errors = [];
       vm.success = false;
-      redditService.getChildren(vm.subreddit, vm.time)
+      RedditService.getChildren(vm.subreddit, vm.time)
         .then(successCallback)
         .catch(errorCallback);
       function successCallback(children) {
-        var article = redditService.getArticleByMaxScore(children);
+        var article = RedditService.getArticleByMaxScore(children);
         vm.article = article;
-        smsService.dispatch(vm.phoneNumber, article)
+        ShortMessageService.dispatch(vm.phoneNumber, article)
           .then(function() { vm.success = true; })
           .catch(function(response) { vm.errors.push(response.data.message); });
       }
