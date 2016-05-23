@@ -41,7 +41,7 @@
     <span class="sr-only">Error:</span>
     <span ng-repeat="error in vm.errors">{{ error }}</span>
   </div>
-  <div class="panel panel-default" ng-show="vm.success">
+  <div class="panel panel-default" ng-show="vm.success && vm.errors.length == 0">
     <div class="panel-body">
       <h2>Sending a text to: <strong>{{ vm.phoneNumber }}</strong></h2>
       <blockquote>

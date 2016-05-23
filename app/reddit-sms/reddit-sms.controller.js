@@ -9,14 +9,13 @@
     var vm = this;
     vm.times = reddit.TIMES;
     vm.article = {};
-    vm.errors = [];
-    vm.success = false;
     vm.dispatch = dispatch;
     // `dispatch` receives a subreddit, time, and phone number to use the Twilio
     // HTTP/2 API to send the article with the highest score based on the time
     // that is entered via the user.
     function dispatch() {
       vm.errors = [];
+      vm.success = false;
       redditService.getChildren(vm.subreddit, vm.time)
         .then(successCallback)
         .catch(errorCallback);
