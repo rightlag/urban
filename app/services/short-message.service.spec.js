@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  describe('smsService', function() {
+  describe('ShortMessageService', function() {
     beforeEach(module('urban'));
     var ShortMessageService;
     var $httpBackend;
