@@ -7,10 +7,7 @@
       TIMES: ['hour', 'day', 'week', 'month', 'year', 'all']
     })
     .constant('twilio', {
-      ADDRESS: 'https://api.twilio.com/2010-04-01',
-      ACCOUNT_SID: 'AC38e8f428307f959d610e116474094818',
-      AUTH_TOKEN: '5846cb21790aac5ff9dfe4ff5970b02c',
-      FROM: '+19402027859',
+      ADDRESS: 'http://twilio-proxy-py.herokuapp.com',
       BODY: 'Check out this jawn'
     });
 }());
