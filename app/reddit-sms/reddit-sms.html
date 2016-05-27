@@ -2,6 +2,13 @@
   <h1>URBN Coding Challenge</h1>
   <p>This application sends a text message containing the top posting in a particular subreddit based on the time that was selected. Simply use the form below to start sending texts!</p>
 </div>
+<section id="loading" ng-show="vm.loading">
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+      <span class="sr-only">100% Complete</span>
+    </div>
+  </div>
+</section>
 <form name="rsms" class="form-inline" ng-submit="vm.dispatch()" novalidate>
   <div class="row">
     <div class="col-sm-3">

@@ -16,6 +16,7 @@
     vm.times = reddit.TIMES;
     vm.article = {};
     vm.errors = [];
+    vm.loading = false;
     vm.success = false;
     vm.dispatch = dispatch;
     // `dispatch` receives a subreddit, time, and phone number to use the Twilio
@@ -24,6 +25,7 @@
     function dispatch() {
       vm.errors = [];
       vm.success = false;
+      vm.loading = true;
       var phoneNumber = UtilityService.parsePhoneNumber(vm.phoneNumber);
       RedditService.getChildren(vm.subreddit, vm.time)
         .then(successCallback)
@@ -35,7 +37,10 @@
         // Send the article with the highest score to the phone number provided
         // by the user.
         ShortMessageService.dispatch(phoneNumber, article)
-          .then(function() { vm.success = true; })
+          .then(function() {
+            vm.loading = false;
+            vm.success = true;
+          })
           .catch(function(response) { vm.errors.push(response.data.message); });
       }
       function errorCallback(response) {
